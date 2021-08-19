@@ -28,7 +28,8 @@ document.getElementById("diposite_btn").addEventListener("click", () => {
 
 document.getElementById("withdraw_btn").addEventListener("click", () => {
     const getvalue = getInputValue("input_withdraw");
-    if (getvalue > 0 && getvalue != "") {
+    const mainBalance = parseFloat(document.getElementById("current_balance").innerText);
+    if (getvalue > 0 && getvalue != "" && mainBalance >= 0) {
         CurrentAmount("current_withdraw", getvalue);
         CurrentBalance("current_balance", getvalue, false);
     } else {
